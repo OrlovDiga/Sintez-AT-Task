@@ -74,7 +74,7 @@ services:
 ```
 
 Next, you need to navigate in the terminal to the directory where you created docker-compose.yml.
-And enter the command docker-compose up. Сongratulations, you have launched the application!
+And enter the command `docker-compose up`. Сongratulations, you have launched the application!
 
 
 ### Second
