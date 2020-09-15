@@ -53,7 +53,7 @@ count - число записей, отображаемых на страниц�
 ## Installation
 You can launch this web service in several ways.
 
-## First
+### First
 You need to install docker on your host. Next, create `docker-compose.yml` with the following content:
 ```
 version: '3'
