@@ -6,7 +6,7 @@ import org.example.ShortUriWebService.repo.impl.UrlEntityDAOImpl;
 import org.example.ShortUriWebService.service.CallCountService;
 import org.example.ShortUriWebService.service.UrlEntityService;
 import org.example.ShortUriWebService.util.LFUCache;
-import org.example.ShortUriWebService.util.ShortURLGenerator;
+import org.example.ShortUriWebService.util.ShortUrlGenerator;
 
 import java.util.function.Function;
 
@@ -28,7 +28,7 @@ public class UrlEntityServiceImpl implements UrlEntityService {
 
     @Override
     public UrlEntity saveUrlEntity(String origUrl) {
-        Function<Integer, String> fn = ShortURLGenerator::encode;
+        Function<Integer, String> fn = ShortUrlGenerator::encode;
 
         UrlEntity entity = entityDAO.saveUrlEntity(origUrl, fn);
         cache.set(entity.getShortUrl(), entity.getOriginalUrl());

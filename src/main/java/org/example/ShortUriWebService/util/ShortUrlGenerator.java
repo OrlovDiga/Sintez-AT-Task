@@ -3,7 +3,7 @@ package org.example.ShortUriWebService.util;
 /**
  * @author Orlov Diga
  */
-public final class ShortURLGenerator {
+public final class ShortUrlGenerator {
 
     public static final String ALPHABET = "23456789bcdfghjkmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ-_";
     public static final int BASE = ALPHABET.length();
@@ -25,6 +25,6 @@ public final class ShortURLGenerator {
         return num;
     }
 
-    private ShortURLGenerator() {}
+    private ShortUrlGenerator() {}
 
 }
