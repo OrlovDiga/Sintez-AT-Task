@@ -53,12 +53,36 @@ count - число записей, отображаемых на страниц�
 ## Installation
 You can launch this web service in several ways.
 
-### First
+## First
+You need to install docker on your host. Next, create `docker-compose.yml` with the following content:
+```
+version: '3'
+
+services:
+  short_url_war:
+    image: privdim/short_url_service
+    ports:
+      - 8080:8080
+    links:
+      - "db"
+    depends_on:
+      - db
+  db:
+    image: privdim/short_url_db
+    ports:
+    - 5432:5432
+```
+
+Next, you need to navigate in the terminal to the directory where you created docker-compose.yml.
+And enter the command docker-compose up. Сongratulations, you have launched the application!
+
+
+### Second
 You need to install tomcat on your host and postgres. Next, you must download this repository.
 Configure tomcat configuration. Configure a database connection in `src/main/resources/hibernate.cfg.xml`.
 Now you can run the application.
 
-### Second
+### Third
 You need to install docker on your host. Next, you must download this repository.
 Next, you need to enter the command in the terminal while in the root of the project:
 'docker-compose up'. and that's it, your application has started.
