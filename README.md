@@ -125,6 +125,9 @@ redirects you to the address: https://www.google.com/maps/preview
 
 </details>
 
+## License
+[MIT](https://github.com/OrlovDiga/Sintez-AT-Task/blob/master/LICENSE)
+
 
 
 
