@@ -78,12 +78,12 @@ And enter the command `docker-compose up`. Сongratulations, you have launched t
 
 
 ### Second
-You need to install tomcat on your host and postgres. Next, you must download this repository.
+You need to install [tomcat](https://tomcat.apache.org/download-90.cgi) on your host and [postgreSQL](https://www.postgresql.org/download/). Next, you must download this repository.
 Configure tomcat configuration. Configure a database connection in `src/main/resources/hibernate.cfg.xml`.
 Now you can run the application.
 
 ### Third
-You need to install docker on your host. Next, you must download this repository.
+You need to install [docker](https://docs.docker.com/get-docker/) on your host. Next, you must download this repository.
 Next, you need to enter the command in the terminal while in the root of the project:
 `docker-compose up`. and that's it, your application has started.
 
