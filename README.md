@@ -69,8 +69,8 @@ This application has multiple entry points:
 
 * POST */generate* - generate short url.
 * GET */l/{short-url}* - redirect to original url.
-* GET *stats/{short-url}* - statistics for this short url.
-* GET *stats?page={page-number}&count={json-object-count-to-page}* - returns statistics for urls.
+* GET */stats/{short-url}* - statistics for this short url.
+* GET */stats?page={page-number}&count={json-object-count-to-page}* - returns statistics for urls.
 
 <details><summary>Request examples:</summary>
 
