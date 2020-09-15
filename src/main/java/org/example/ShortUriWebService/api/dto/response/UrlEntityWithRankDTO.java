@@ -1,11 +1,11 @@
-package org.example.ShortUriWebService.domain;
+package org.example.ShortUriWebService.api.dto.response;
 
 import java.io.Serializable;
 
 /**
  * @author Orlov Diga
  */
-public class UrlEntityWithRank implements Serializable {
+public class UrlEntityWithRankDTO implements Serializable {
 
     private String shortUrl;
     private String originalUrl;
@@ -49,7 +49,7 @@ public class UrlEntityWithRank implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        UrlEntityWithRank that = (UrlEntityWithRank) o;
+        UrlEntityWithRankDTO that = (UrlEntityWithRankDTO) o;
 
         if (shortUrl != null ? !shortUrl.equals(that.shortUrl) : that.shortUrl != null) return false;
         if (originalUrl != null ? !originalUrl.equals(that.originalUrl) : that.originalUrl != null) return false;

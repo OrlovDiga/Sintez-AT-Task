@@ -1,6 +1,6 @@
 package org.example.ShortUriWebService.service;
 
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface StatisticsUrlService {
 
-    UrlEntityWithRank findByShortUrlWithRank(String shortUrl);
-    List<UrlEntityWithRank> getAllByPageAndCount(int page, int count);
+    UrlEntityWithRankDTO findByShortUrlWithRank(String shortUrl);
+    List<UrlEntityWithRankDTO> getAllByPageAndCount(int page, int count);
 
 }

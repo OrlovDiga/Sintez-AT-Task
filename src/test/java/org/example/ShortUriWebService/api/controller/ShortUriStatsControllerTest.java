@@ -1,6 +1,6 @@
 package org.example.ShortUriWebService.api.controller;
 
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 import org.example.ShortUriWebService.service.StatisticsUrlService;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,25 +30,25 @@ public class ShortUriStatsControllerTest {
     @InjectMocks
     private ShortUrlStatsController controller;
 
-    private List<UrlEntityWithRank> entityWithRankList;
-    private UrlEntityWithRank entityWithRank;
+    private List<UrlEntityWithRankDTO> entityWithRankList;
+    private UrlEntityWithRankDTO entityWithRank;
     private static final String NON_EXISTENT_URL = "nonExistentUrl";
 
     @Before
     public void setUp() {
-        UrlEntityWithRank entityWithRank1 = new UrlEntityWithRank();
+        UrlEntityWithRankDTO entityWithRank1 = new UrlEntityWithRankDTO();
         entityWithRank1.setRank("1");
         entityWithRank1.setCallCount("10");
         entityWithRank1.setOriginalUrl("http://localhost:8080/veryLongUrl1");
         entityWithRank1.setShortUrl("/l/short1");
 
-        UrlEntityWithRank entityWithRank2 = new UrlEntityWithRank();
+        UrlEntityWithRankDTO entityWithRank2 = new UrlEntityWithRankDTO();
         entityWithRank2.setRank("2");
         entityWithRank2.setCallCount("5");
         entityWithRank2.setOriginalUrl("http://localhost:8080/veryLongUrlLongUrl2");
         entityWithRank2.setShortUrl("/l/short2");
 
-        UrlEntityWithRank entityWithRank3 = new UrlEntityWithRank();
+        UrlEntityWithRankDTO entityWithRank3 = new UrlEntityWithRankDTO();
         entityWithRank3.setRank("3");
         entityWithRank3.setCallCount("2");
         entityWithRank3.setOriginalUrl("http://localhost:8080/veryLongUrlVeryUrl3");

@@ -2,7 +2,7 @@ package org.example.ShortUriWebService.repo;
 
 import com.sun.istack.NotNull;
 import org.example.ShortUriWebService.domain.UrlEntity;
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 
 import java.util.List;
 import java.util.Map;
@@ -19,7 +19,7 @@ public interface UrlEntityDAO  {
     void updateEntitiesCount(@NotNull final Map<String, Integer> callCount);
     UrlEntity findByShortUrl(@NotNull final String shortUrl);
     UrlEntity findById(Long id);
-    UrlEntityWithRank findByShortUrlWithRank(String shortUrl);
-    List<UrlEntityWithRank> findAllByPageAndCount(int page, int count);
+    UrlEntityWithRankDTO findByShortUrlWithRank(String shortUrl);
+    List<UrlEntityWithRankDTO> findAllByPageAndCount(int page, int count);
 
     }

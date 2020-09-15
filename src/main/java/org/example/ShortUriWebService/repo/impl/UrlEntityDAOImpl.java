@@ -2,7 +2,7 @@ package org.example.ShortUriWebService.repo.impl;
 
 import com.sun.istack.NotNull;
 import org.example.ShortUriWebService.domain.UrlEntity;
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 import org.example.ShortUriWebService.repo.UrlEntityDAO;
 import org.example.ShortUriWebService.util.SessionUtil;
 import org.hibernate.Hibernate;
@@ -153,12 +153,13 @@ public class UrlEntityDAOImpl implements UrlEntityDAO {
         } finally {
             session.close();
         }
+
         return entity;
     }
 
-    public UrlEntityWithRank findByShortUrlWithRank(String shortUrl) {
+    public UrlEntityWithRankDTO findByShortUrlWithRank(String shortUrl) {
         Session session = SessionUtil.getSession();
-        UrlEntityWithRank entity = null;
+        UrlEntityWithRankDTO entity = null;
 
         try {
             Object[] params =
@@ -172,7 +173,7 @@ public class UrlEntityDAOImpl implements UrlEntityDAO {
                                     "\turlentity ) AS foo where shorturl = :param1")
                             .setParameter("param1", shortUrl).getSingleResult();
 
-            entity = new UrlEntityWithRank();
+            entity = new UrlEntityWithRankDTO();
             entity.setShortUrl(params[0].toString());
             entity.setOriginalUrl(params[1].toString());
             entity.setCallCount(params[2].toString());
@@ -185,18 +186,20 @@ public class UrlEntityDAOImpl implements UrlEntityDAO {
         finally {
             session.close();
         }
+
         return entity;
     }
 
-    public List<UrlEntityWithRank> findAllByPageAndCount(int page, int count) {
+    public List<UrlEntityWithRankDTO> findAllByPageAndCount(int page, int count) {
         int end = page * count;
         int begin = end - count;
 
         Session session = SessionUtil.getSession();
-        List<UrlEntityWithRank> entityWithRankList = new ArrayList<>();
+        List<UrlEntityWithRankDTO> entityWithRankList = new ArrayList<>();
 
         try {
-            List<Object[]> paramsList = session.createSQLQuery("SELECT shorturl, originalurl, callcount, rank FROM ( SELECT\n" +
+            List<Object[]> paramsList = session.createSQLQuery("SELECT shorturl, originalurl," +
+                    " callcount, rank FROM ( SELECT\n" +
                     "\tshorturl, originalurl, callcount,\n" +
                     "\tDENSE_RANK () OVER ( \n" +
                     "\t\tORDER BY callcount DESC\n" +
@@ -208,7 +211,7 @@ public class UrlEntityDAOImpl implements UrlEntityDAO {
                     .getResultList();
 
             for (Object[] param : paramsList) {
-                UrlEntityWithRank entity = new UrlEntityWithRank();
+                UrlEntityWithRankDTO entity = new UrlEntityWithRankDTO();
                 entity.setShortUrl(param[0].toString());
                 entity.setOriginalUrl(param[1].toString());
                 entity.setCallCount(param[2].toString());

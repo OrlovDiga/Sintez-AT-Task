@@ -1,6 +1,6 @@
 package org.example.ShortUriWebService.service.impl;
 
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 import org.example.ShortUriWebService.repo.UrlEntityDAO;
 import org.example.ShortUriWebService.repo.impl.UrlEntityDAOImpl;
 import org.example.ShortUriWebService.service.CallCountService;
@@ -22,16 +22,18 @@ public class StatisticsUrlServiceImpl implements StatisticsUrlService {
     }
 
     @Override
-    public UrlEntityWithRank findByShortUrlWithRank(String shortUrl) {
+    public UrlEntityWithRankDTO findByShortUrlWithRank(String shortUrl) {
         callCountService.updateDB();
         callCountService.clearCache();
+
         return entityDAO.findByShortUrlWithRank(shortUrl);
     }
 
     @Override
-    public List<UrlEntityWithRank> getAllByPageAndCount(int page, int count) {
+    public List<UrlEntityWithRankDTO> getAllByPageAndCount(int page, int count) {
         callCountService.updateDB();
         callCountService.clearCache();
+
         return entityDAO.findAllByPageAndCount(page, count);
     }
 }

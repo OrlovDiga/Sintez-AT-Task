@@ -1,7 +1,7 @@
 package org.example.ShortUriWebService.api.controller;
 
 import com.sun.jersey.spi.resource.Singleton;
-import org.example.ShortUriWebService.domain.UrlEntityWithRank;
+import org.example.ShortUriWebService.api.dto.response.UrlEntityWithRankDTO;
 import org.example.ShortUriWebService.service.StatisticsUrlService;
 import org.example.ShortUriWebService.service.impl.StatisticsUrlServiceImpl;
 
@@ -27,7 +27,7 @@ public class ShortUrlStatsController {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{shortUrl}")
     public Response getStatsByShortUrl(@PathParam("shortUrl") String shortUrl) {
-        UrlEntityWithRank entityWithRank = statisticsUrlService.findByShortUrlWithRank(shortUrl);
+        UrlEntityWithRankDTO entityWithRank = statisticsUrlService.findByShortUrlWithRank(shortUrl);
 
         return (entityWithRank == null) ?
                 Response.status(Response.Status.BAD_REQUEST).build() :
@@ -45,7 +45,7 @@ public class ShortUrlStatsController {
             page = 1;
         }
 
-        List<UrlEntityWithRank> urlEntityWithRankList =
+        List<UrlEntityWithRankDTO> urlEntityWithRankList =
                 statisticsUrlService.getAllByPageAndCount(page, count);
 
         return Response.ok(urlEntityWithRankList).build();
