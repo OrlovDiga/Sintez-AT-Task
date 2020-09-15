@@ -76,7 +76,7 @@ services:
 Next, you need to navigate in the terminal to the directory where you created docker-compose.yml.
 And enter the command `docker-compose up`. Сongratulations, you have launched the application!
 
-Next, you can send a POST request to http://YOUR_HOST_IP:8080/generate that create your first short URL.
+Next, you can send a POST request to http://YOUR_HOST_IP:8080/Short-Uri-Web-Service/generate that create your first short URL.
 
 ### Second
 You need to install [tomcat](https://tomcat.apache.org/download-90.cgi) on your host and [postgreSQL](https://www.postgresql.org/download/). Next, you must download this repository.
