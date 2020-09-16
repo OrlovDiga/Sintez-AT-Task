@@ -42,13 +42,17 @@ public class ShortUrlController {
 
     @GET
     @Path("/l/{short-url}")
-    public Response redirectToOriginalUrl(@PathParam("short-url") final String shortUrl)
-            throws URISyntaxException {
+    public Response redirectToOriginalUrl(@PathParam("short-url") final String shortUrl) {
 
         String origUrl = urlEntityService.findByShortUrl(shortUrl);
 
-        return (origUrl == null) ?
-                Response.status(400).build() :
-                Response.temporaryRedirect(new URI(origUrl)).build();
+        try {
+            return (origUrl == null) ?
+                    Response.status(400).build() :
+                    Response.temporaryRedirect(new URI(origUrl)).build();
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).entity("Wrong format original URL.").build();
+        }
     }
 }
