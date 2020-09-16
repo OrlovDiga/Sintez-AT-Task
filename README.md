@@ -85,7 +85,7 @@ Now you can run the application.
 
 ### Third
 You need to install [docker](https://docs.docker.com/get-docker/) on your host. Next, you must download this repository.
-Configure a database connection in src/main/resources/hibernate.cfg.xml
+Configure a database connection in `src/main/resources/hibernate.cfg.xml`.
 Next, you need to enter the command in the terminal while in the root of the project:
 `docker-compose up`. And that's it, your application has started.
 
